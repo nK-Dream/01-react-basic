@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>虚拟DOM和真实DOM</title>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="test"></div>
+
+    <script type="text/babel">
+        const VDOM = <h1>Hello,React</h1>;
+        const TDOM = document.querySelector("#test");
+
+        console.log(typeof VDOM);// object
+        console.log(VDOM instanceof Object);// true
+
+        //对比虚拟DOM和真实DOM
+        console.log('虚拟DOM：',VDOM);
+        console.log('真实DOM：',TDOM);
+        debugger;
+    </script>
+
+</body>
+
+</html>

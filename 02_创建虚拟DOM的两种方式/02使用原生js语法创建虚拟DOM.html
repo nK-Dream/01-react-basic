@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>使用原生js语法创建虚拟DOM</title>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+</head>
+
+<body>
+    <div id="test"></div>
+
+    <script type="text/javascript">
+        const VDOM = React.createElemnt('h1',{id:'demo'},React.createElement('span',null, 'Hello, React'));
+
+        ReactDOM.render(VDOM, document.getElementById("test"));
+    </script>
+
+</body>
+
+</html>
