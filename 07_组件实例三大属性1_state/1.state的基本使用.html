@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>state的基本使用</title>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        class Weater extends React.Component{
+            constructor(props){
+                super(props)
+                this.state = {isHot:false}
+                this.changeWeaterState = this.changeWeaterState.bind(this)
+            }
+
+            changeWeaterState(){
+                this.state.isHot = !this.state.isHot;
+            }
+
+            render(){
+                const {isHot} = this.state;
+                return <h1 onClick={this.changeWeaterState}>今天天气很{isHot?'炎热':'凉爽'}</h1>
+            }
+        }
+        ReactDOM.render(<Weater/>,document.querySelector('#app'))
+    </script>
+</body>
+
+</html>
