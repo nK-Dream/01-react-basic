@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsx的小练习</title>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        const data = ['Angular','Vue','React']
+        const VDOM = (
+            <div>
+                <h1>前端主流框架</h1>
+                <ul>
+                    {data.map((item,index)=><li key={index}>{item}</li>)}
+                </ul>
+            </div>
+        );
+        ReactDOM.render(VDOM,document.querySelector("#app"));
+    </script>
+</body>
+</html>
