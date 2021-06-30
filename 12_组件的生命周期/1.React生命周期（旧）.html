@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>React生命周期（旧）</title>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        class Count extends React.Component{
+            //构造器
+            constructor(){
+                console.log('constructor')
+                super();
+                this.state = {
+                    count:0
+                }
+            }
+
+            //加按钮的回调函数
+            add = () => {
+                const {count} = this.state;
+                this.setState({count:count+1})
+            }
+            //卸载按钮的回调函数
+            death = ()=>{
+                ReactDOM.unmountComponentAtNode(document.querySelector("#app"))
+            }
+            //强制更新按钮的回调函数
+            forceUpdateToDom = () => {
+                this.forceUpdate();
+            }
+
+            //组件将要被挂载
+            componentWillMount(){
+                console.log('componentWillMount');
+                
+            }
+
+            
+            //组件挂载完毕
+            componentDidMount() {
+                console.log('componentDidMount');
+            }
+
+            //组件将要被卸载
+            componentWillUnmount() {
+                console.log('compontWillUnmount');
+
+            }
+
+            //控制组件是否更新(该钩子可以进行组件的优化)
+            shouldComponentUpdate() {
+                console.log('shouldComponentUpdate');
+                return false;
+            }
+
+            //组件将要更新
+            componentWillUpdate(){
+                console.log('componentWillUpdate');
+                
+            }
+
+            //组件更新完毕
+            componentDidUpdate(){
+                console.log('componentDidUpdate');
+                
+            }
+
+            //挂载组件
+            render(){
+                console.log('render');
+                
+                return(
+                    <div>
+                        <h1>当前求和为：{this.state.count}</h1>
+                        <button onClick={this.add}>点我+1</button>
+                        <button onClick={this.death}>点我卸载组件</button>
+                        <button onClick={this.forceUpdateToDom}>不改状态，强制更新</button>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<Count/>,document.querySelector("#app"))
+    </script>
+</body>
+
+</html>
