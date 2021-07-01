@@ -27,9 +27,21 @@
 
             //从props中获取派生的状态
             //当组件中的state完全取决于:外部传入的props时，就要用这个钩子
-            static getDerivedStateFromProps(props,state){
+            /* static getDerivedStateFromProps(props,state){
                 console.log('getDerivedStateFromProps',props,state);
                 return {count:props.a}
+            } */
+
+
+            getSnapshotBeforeUpdate(){
+                console.log('getSnapshotBeforeUpdate');    
+                return '小明是个好人'
+                
+            }
+
+            componentDidUpdate(prevProps,prevState,snapshotValue){
+                console.log('componentDidUpdate',prevProps,prevState,snapshotValue);
+                
             }
 
             //加按钮的回调函数
